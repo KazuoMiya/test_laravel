@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create</div>
+                <div class="card-header">Show</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,15 +18,33 @@
                     <a href="{{route('contact.index')}}" class="btn btn-primary">Back to Index</a><br>
                     <br>
                     <br>
-                    {{$contact->id}} <br>
-                    {{$contact->user_name}} <br>
-                    {{$gender}} <br>
-                    {{$age}} <br>
-                    <form action="" method="get">
-                        @csrf
-                        
-                        <input type="submit" value="Edit" class="btn btn-info">
-                    </form>
+                    <table class="table table-dark table-striped table-hover">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Name</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">email</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Contact</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$contact->user_name}}</td>
+                                <td>{{$contact->title}}</td>
+                                <td>{{$contact->email}}</td>
+                                <td>{{$contact->URL}}</td>
+                                <td>{{$gender}}</td>
+                                <td>{{$age}}</td>
+                                <td>{{$contact->Contact}}</td>
+                                <td><a href="{{route('contact.edit', [ 'id' => $contact->id ])}}">Edit</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
