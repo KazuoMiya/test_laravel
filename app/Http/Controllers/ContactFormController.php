@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactForm;
+use App\Services\CheckDataController;
+use App\Services\CheckFormData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -63,21 +65,8 @@ class ContactFormController extends Controller
     {
         $contact = ContactForm::find($id);
 
-        if( $contact->gender === 0 ){
-            $gender = 'Male';
-        } elseif ( $contact->gender === 1 ){
-            $gender = 'Female';
-        } else {
-            $gender = 'Unisex';
-        }
-
-        if( $contact->age === 0 ){
-            $age = '1~9';
-        } elseif ( $contact->age === 1 ){
-            $age = '10~19';
-        } else {
-            $age = '20~29';
-        }
+        $gender = CheckDataController::checkGender($contact);
+        $age = CheckDataController::checkAge($contact);
 
         return view('contact.show', compact('contact', 'gender', 'age'));
     }
