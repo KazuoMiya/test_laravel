@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactForm;
 use App\Services\CheckDataController;
-use App\Services\CheckFormData;
+use App\Http\Requests\StoreContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,7 +38,7 @@ class ContactFormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreContactForm $request)
     {
         $contact = new ContactForm();
 

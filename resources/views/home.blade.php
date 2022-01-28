@@ -15,6 +15,10 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    <br>
+                    <a href="{{route('contact.index')}}" class="btn btn-primary">Go to Index</a><br>
+                    <br>
                 </div>
             </div>
         </div>
