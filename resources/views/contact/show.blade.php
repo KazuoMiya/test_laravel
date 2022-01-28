@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Show</div>
 
@@ -40,8 +40,14 @@
                                 <td>{{$contact->URL}}</td>
                                 <td>{{$gender}}</td>
                                 <td>{{$age}}</td>
-                                <td>{{$contact->Contact}}</td>
-                                <td><a href="{{route('contact.edit', [ 'id' => $contact->id ])}}">Edit</a></td>
+                                <td>{{$contact->contact}}</td>
+                                <td><a href="{{route('contact.edit', [ 'id' => $contact->id ])}}" class="btn btn-primary">Edit</a></td>
+                                <td>
+                                    <form action="{{route('contact.destroy', [ 'id' => $contact->id ])}}" method="post" id="delete_{{$contact->id}}">
+                                        @csrf
+                                        <a href="#" data-id="{{$contact->id}}" onclick="deletePost(this)" class="btn btn-danger">Delete</a>
+                                    </form>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -50,4 +56,12 @@
         </div>
     </div>
 </div>
+<script>
+    function deletePost(e){
+        'use strict';
+        if(confirm('Are you sure really delete it?')){
+            document.getElementById('delete_' + e.dataset.id).submit();
+        }
+    }
+</script>
 @endsection

@@ -34,13 +34,13 @@
                         Age: <br>
                         <select name="age">
                             <option value="">Please select</option>
-                            <option value="1">1~9</option>
-                            <option value="2">10~19</option>
-                            <option value="3">20~29</option>
+                            <option value="0">1~9</option>
+                            <option value="1">10~19</option>
+                            <option value="2">20~29</option>
                         </select><br><br>
                         Comment: <br>
                         <textarea name="contact"></textarea> <br>
-                        <input type="submit" value="Submit" class="btn btn-info">
+                        <input type="submit" value="submit" class="btn btn-info">
                     </form>
                 </div>
             </div>

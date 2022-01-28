@@ -72,11 +72,11 @@ class ContactFormController extends Controller
         }
 
         if( $contact->age === 0 ){
-            $age = '10~19';
+            $age = '1~9';
         } elseif ( $contact->age === 1 ){
-            $age = '20~29';
+            $age = '10~19';
         } else {
-            $age = '30~39';
+            $age = '20~29';
         }
 
         return view('contact.show', compact('contact', 'gender', 'age'));
@@ -104,7 +104,19 @@ class ContactFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact = ContactForm::find($id);
+
+        $contact->user_name = $request->input('user_name');
+        $contact->title = $request->input('title');
+        $contact->email = $request->input('email');
+        $contact->url = $request->input('url');
+        $contact->gender = $request->input('gender');
+        $contact->age = $request->input('age');
+        $contact->contact = $request->input('contact');
+
+        $contact->save();
+
+        return redirect('contact/index');
     }
 
     /**
@@ -115,6 +127,9 @@ class ContactFormController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = ContactForm::find($id);
+        $contact->delete();
+
+        return redirect('contact/index');
     }
 }

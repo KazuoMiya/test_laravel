@@ -17,7 +17,7 @@
                     <br>
                     <a href="{{route('contact.index')}}" class="btn btn-primary">Back to Index</a><br>
                     <br>
-                    <form action="" method="post">
+                    <form action="{{route('contact.update', ['id' => $contact->id])}}" method="post">
                         @csrf
                         Name: <br>
                         <input type="text" name="user_name" value="{{$contact->user_name}}"><br>
@@ -40,7 +40,7 @@
                         </select><br><br>
                         Comment: <br>
                         <textarea name="contact">{{$contact->contact}}</textarea> <br>
-                        <input type="submit" value="Submit" class="btn btn-info">
+                        <input type="submit" value="submit" class="btn btn-info">
                     </form>
                 </div>
             </div>
