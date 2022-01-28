@@ -34,9 +34,9 @@
                         Age: <br>
                         <select name="age">
                             <option value="">Please select</option>
-                            <option value="0" @if( $contact->gender === 0 ) selected @endif >1~9</option>
-                            <option value="1" @if( $contact->gender === 1 ) selected @endif >10~19</option>
-                            <option value="2" @if( $contact->gender === 2 ) selected @endif >20~29</option>
+                            <option value="0" @if( $contact->age === 0 ) selected @endif >1~9</option>
+                            <option value="1" @if( $contact->age === 1 ) selected @endif >10~19</option>
+                            <option value="2" @if( $contact->age === 2 ) selected @endif >20~29</option>
                         </select><br><br>
                         Comment: <br>
                         <textarea name="contact">{{$contact->contact}}</textarea> <br>
