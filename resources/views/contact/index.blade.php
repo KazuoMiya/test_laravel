@@ -16,6 +16,12 @@
                     INDEX<br>
                     <br>
                     <a href="{{route('contact.create')}}" class="btn btn-primary">新規作成</a><br><br>
+                    <form method="GET" action="" class="form-inline">
+                        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <br>
+
                     <table class="table table-dark table-striped table-hover">
                         <thead>
                             <tr>
@@ -38,6 +44,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $contacts->links() }}
                 </div>
             </div>
         </div>
