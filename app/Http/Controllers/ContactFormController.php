@@ -27,7 +27,8 @@ class ContactFormController extends Controller
             $search_split2 = preg_split('/[\s]+/', $search_split, -1, PREG_SPLIT_NO_EMPTY);
 
             foreach($search_split2 as $value){
-                $query->where('user_name', 'like', '%'.$value.'%');
+                $query->where('user_name', 'like', '%'.$value.'%')
+                ->orWhere('title', 'like', '%'.$value.'%');
             }
         }
 
